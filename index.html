@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" type="text/css" href="css/style.css">	
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/blink.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div style="relative">
+<input id="product" type="text" maxlength="17" class="blink-view" />
+</div>
+
+
+<script type="text/javascript">
+
+var blink_view = $('.blink-view');
+//var blink_css =  $('.blink-view').css( "cssText" ).split(';');
+
+blink_view.css({
+					
+					/*padding:0*/
+				})
+				.addClass('in_out_elem')
+				.before('<div class="in_out_elem blink_caret" id="blink_caret"  style="margin: 0;padding: 0;"></div>')
+				.after('<span class="in_out_elem" id="hiddenArea" style="margin: 0;padding: 0;"></span>')
+$( ".in_out_elem" )
+				.wrapAll( "<div class='bink_env' style='position:relative;margin: 0;padding: 0;' />");				
+
+var blinkTopPos  = blink_view.offset().top,
+	blinkLeftPos = blink_view.offset().left,
+	blinkHeight  = blink_view.height(),
+	paddingLeft  = parseInt(blink_view.css('padding-left'),10),
+	paddingTop 	 = parseInt(blink_view.css('padding-top'),10),
+	letterSpacing = parseInt(blink_view.css('letter-spacing'),10),
+	fontSize	 = blink_view.css('font-size'),
+	lineHeight   = blink_view.css('linHeight'),
+	fontWeight   = blink_view
+$('#blink_caret').css({
+	
+	height : blinkHeight + paddingLeft + paddingTop + "px"
+})
+
+$('#hiddenArea').css({
+	fontSize: fontSize,
+	lineHeight : lineHeight
+})
+
+$(".blink-view").on("keyup click focus", function(evt) {
+        var off = this.selectionStart;
+        actualVal = this.value;
+        $('#hiddenArea').text($(this).val().substring(0, off).replace(/\s/g, "\u00a0"));
+        $('#hiddenArea').html(val)
+        var val = actualVal.replace(/\_*/g,'');
+        left = blinkLeftPos;
+        left += $('#hiddenArea').width() - letterSpacing - 4;
+        $('#blink_caret').css("left",  left  +  "px")
+    });
+
+  window.setInterval(function(){
+    $('#blink_caret').toggle();
+  },400);
+
+</script>
+</body>
+</html>

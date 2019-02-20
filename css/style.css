@@ -1,0 +1,37 @@
+#hiddenArea{
+    width: auto;
+    border:1px solid red;
+    font-weight: bold;
+    z-index: 999999;
+    position: absolute;
+    display: none;
+    padding: 5px;
+    display: block;
+    opacity: 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: arial;
+}
+.blink-view{
+
+    font-size:15px; 
+   
+   /* outline: none;*/
+   /* background: #797979;*/
+    letter-spacing: 5px;
+    width: 200px;
+    height: 10px;
+    padding: 5px;
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+    font-family: arial;
+    text-transform: uppercase;
+}
+
+.blink_caret{
+    width: 13px;
+    background: #ededed;
+    border: 1px solid black;
+    position: absolute;
+
+}
